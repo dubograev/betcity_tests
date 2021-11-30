@@ -1,20 +1,16 @@
 package ru.dubograev.tests;
 
-import com.codeborne.selenide.selector.ByText;
-import io.qameta.allure.Description;
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import ru.dubograev.helpers.DriverUtils;
 
-import javax.xml.soap.Text;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class MainPageTests extends TestBase {
     @ParameterizedTest(name = "Page {0} should have title {1}")
@@ -27,6 +23,7 @@ public class MainPageTests extends TestBase {
             "Статистика; Статистика матчей - футбол, теннис, хоккей и другие виды спорта",
             "Информация; О компании • Букмекерская контора БЕТСИТИ",
     }, delimiter = ';')
+    @AllureId("5978")
     void mainMenuButtons(String button, String title) {
         step("Open url 'https://betcity.ru/'", () ->
                 open("https://betcity.ru/"));
@@ -41,6 +38,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("5977")
     @DisplayName("Page title should have header text")
     void titleTest() {
         step("Open url 'https://betcity.ru/'", () ->
@@ -55,7 +53,8 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Page console log should not have errors")
+    @AllureId("5979")
+    @DisplayName("Page console logs should not have errors")
     void consoleShouldNotHaveErrorsTest() {
         step("Open url 'https://betcity.ru/'", () ->
             open("https://betcity.ru/"));

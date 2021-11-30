@@ -1,6 +1,7 @@
 package ru.dubograev.tests;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.attribute;
@@ -12,6 +13,7 @@ public class RegistrationTests extends TestBase {
     Faker faker = new Faker();
 
     @Test
+    @AllureId("5967")
     void registrationWithWrongPhoneNumber() {
         step("Open url 'https://betcity.ru/ru/reg'", () ->
                 open("https://betcity.ru/ru/reg"));
@@ -25,6 +27,7 @@ public class RegistrationTests extends TestBase {
     }
 
     @Test
+    @AllureId("5968")
     void registrationWithAgeLessThan18() {
         step("Open url 'https://betcity.ru/ru/reg'", () ->
                 open("https://betcity.ru/ru/reg"));
@@ -40,6 +43,7 @@ public class RegistrationTests extends TestBase {
     }
 
     @Test
+    @AllureId("5969")
     void registrationWithEmptyPassword() {
         step("Open url 'https://betcity.ru/ru/reg'", () ->
                 open("https://betcity.ru/ru/reg"));
