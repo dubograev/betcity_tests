@@ -27,7 +27,7 @@ public class MainPageTests extends TestBase {
     void mainMenuButtons(String button, String title) {
         step("Open url 'https://betcity.ru/'", () ->
                 open("https://betcity.ru/"));
-        step("Check that the title for %s is %s", () -> {
+        step("Check that the title for " + button + " is " + title, () -> {
             $(".push-confirm").$("[aria-label=Закрыть]").click();
             $("app-menu").$(".menu").$(byText(button)).click();
             String expectedTitle = title;
